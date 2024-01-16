@@ -30,4 +30,4 @@
 
 - Проект разделен на модули при помощи классов
 
-# Посмотреть результат можно [тут](https://paveleremich.github.io/mesto/)
+# Посмотреть результат можно [тут](https://paveleremich.github.io/mesto-project-ff/)
