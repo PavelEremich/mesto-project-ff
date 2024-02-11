@@ -61,8 +61,9 @@ export default class Api {
     .then(res => this._checkError(res));
   }
 
-  deleteCard() {
-    return fetch(`${this._baseUrl}/cards${cardId}`, {
+  deleteCard(cardId) {
+    console.log(cardId);
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
       headers: {
         authorization: this._headers
@@ -70,9 +71,10 @@ export default class Api {
     })
     .then(res => this._checkError(res));
   }
-  toggleLike() {
+
+  toggleLike(isLiked, cardId) {
     if (!isLiked) {
-      return fetch(`${this._baseUrl}/cards//${cardID}/likes`, {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'PUT',
         headers: {
           authorization: this._headers
@@ -81,7 +83,7 @@ export default class Api {
       .then(res => this._checkError(res));
     }
     else {
-      return fetch(`${this._baseUrl}/cards//${cardID}/likes`, {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: {
           authorization: this._headers
