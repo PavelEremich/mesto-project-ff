@@ -44,11 +44,9 @@ export default class Card {
     this._counter.textContent = this._likesLength;
     this._elementName.textContent = this._name;
 
-
   if (this._ownerId !== this._userId) {
     this._buttonDelete.remove();
  };
-
 
  if (this.isLiked(this.likes)) {
   this._elementLike.classList.add('elements__button-like-active');
@@ -67,12 +65,12 @@ export default class Card {
 
   deleteCardButton() {
     this._element.remove();
-    //this._element = null;
   };
 
-  toggleLike({likes}) {
+  toggleLike(likes) {
     this._elementLike.classList.toggle('elements__button-like-active');
     this._counter.textContent = likes.length;
+    console.log(likes.length);
   };
 
   _setEventListeners() {

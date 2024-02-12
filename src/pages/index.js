@@ -49,7 +49,8 @@ const createCard = (data) => {
     handleToggleLikes: () => {
       api.toggleLike(newCard.isLiked(newCard.likes), newCard.cardId)
       .then((res) => {
-        newCard.toggleLike(res);
+        newCard.toggleLike(res.likes);
+        console.log(res);
       })
       .catch((error => console.log(`Ошибка ${error}`)))
     }
@@ -60,7 +61,6 @@ const createCard = (data) => {
     }
   }
   );
-  //console.log(userId);
   return newCard.generateCard();
 };
 
@@ -77,7 +77,6 @@ const deletePopupWithForm = new PopupDeleteCard(".popup_type_confirm", (cardEl, 
   });
 
   deletePopupWithForm.setEventListeners();
-
 
 imageOpen.setEventListeners();
 
@@ -130,7 +129,6 @@ api.addCard(element['cards'], element['cards-link'])
 addPopupWithForm.setEventListeners();
 
 const section = new Section({
-  //items: initialCards,
   renderer: items => section.appendItem(createCard(items))
   },
 

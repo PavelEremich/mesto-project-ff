@@ -73,6 +73,7 @@ export default class Api {
   }
 
   toggleLike(isLiked, cardId) {
+    console.log(isLiked);
     if (!isLiked) {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'PUT',
